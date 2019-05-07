@@ -5,9 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-
 </head>
 <body>
+
+  <form id="parks-search-form">
+    <label for="state-search">States</label>
+    <input type="text" id='state-search'>
+    <label for="max-results">Max Results: </label>
+    <input type="number" name="max-results" id="max-results" min="1">
+    <button type='submit'>Submit</button>
+  </form>
+
+  <ul id="parks-list"></ul>
   
   <script src="jquery-3.4.0.min.js"></script>
   <script type ="text/javascript" src="script.js"></script>
