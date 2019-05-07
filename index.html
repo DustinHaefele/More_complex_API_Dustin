@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-
+<h1>Search for state Parks</h1>
   <form id="parks-search-form">
     <label for="state-search">States</label>
-    <input type="text" id='state-search'>
+    <input type="text" id='state-search' placeholder="e.g. ga,dc,ca">
     <label for="max-results">Max Results: </label>
-    <input type="number" name="max-results" id="max-results" min="1">
+    <input type="number" name="max-results" id="max-results" min="1" placeholder="10">
     <button type='submit'>Submit</button>
   </form>
 

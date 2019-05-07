@@ -18,16 +18,20 @@ function formatQueryParams(params) {
   return queryItems.join('&');
 }
 
-// function createParksList() {
-//   store.resul
-// }
 
-function buildResultString {
-  
+function buildResultString() { 
+  if(store.results.length === 0){
+    return '<li>THERE ARE NO PARKS THAT MATCH YOUR CRITERIA.</br>  CHECK THAT YOU HAVE THE CORRECT TWO LETTER STATE CODE AND TRY AGAIN!</li>'
+  }
+  return store.results.map(park => {
+    return `<li><span class="titles">Park Name:</span> ${park.fullName} </br><span class="titles">Park Description:</span> ${park.description} </br><span class="titles">Park Website:</span> ${park.url}</li>`
+  }).join('');
 }
 
 function displayResult() {
-  
+  const html = buildResultString();
+  console.log(html);
+  $('#parks-list').html(html);
 }
 
 function buildFullURL() {
@@ -46,8 +50,10 @@ function buildFullURL() {
 function getParks(){
   fetch(buildFullURL())
     .then(response => response.json())
-    .then(jsonResponse => store.results = jsonResponse.data);
-    //.catch()
+    .then(jsonResponse => {store.results = jsonResponse.data;
+      displayResult();
+    });
+    //.catch() If I have time later I'll add an API error catch here.
 }
 
 function setLimit(limit){
@@ -65,7 +71,7 @@ function handleFormSubmit() {
     const limit = $('#max-results').val();
     setStateCode(stateCode);
     setLimit(limit);
-    getParks();
+    getParks(); 
   });
 }
 
