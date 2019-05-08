@@ -70,7 +70,9 @@ function handleFormSubmit() {
     const stateCode = $('#state-search').val();
     const limit = $('#max-results').val();
     setStateCode(stateCode);
-    setLimit(limit);
+    if(limit > 0) {
+      setLimit(limit);
+    }
     getParks(); 
   });
 }
